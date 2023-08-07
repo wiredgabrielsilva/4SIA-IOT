@@ -1,0 +1,497 @@
+[
+    {
+        "id": "9c846a1958940b49",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f86c81ce059f5095",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "e657586e08ce2a60",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "64498b56b61b949f",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "abeb5a0cac55e75a",
+        "type": "ui_tab",
+        "name": "Tab 1",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "e657586e08ce2a60",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "f9a15334041187c6",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "51dee66c6d2e4074",
+        "type": "inject",
+        "z": "9c846a1958940b49",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Hello World!!",
+        "payloadType": "str",
+        "x": 110,
+        "y": 140,
+        "wires": [
+            [
+                "0828289275d13978",
+                "9763914981619762"
+            ]
+        ]
+    },
+    {
+        "id": "0828289275d13978",
+        "type": "http request",
+        "z": "9c846a1958940b49",
+        "name": "Weather",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://api.openweathermap.org/data/2.5/weather?q=Sao+Paulo,BR&appid=0e199ebe4ed2f029c7729624c12f89a5",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 300,
+        "y": 140,
+        "wires": [
+            [
+                "c96cc6e7ba94bda3"
+            ]
+        ]
+    },
+    {
+        "id": "851692671e510c7a",
+        "type": "debug",
+        "z": "9c846a1958940b49",
+        "name": "SeeWeather",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "61d58e266c730e78",
+        "type": "change",
+        "z": "9c846a1958940b49",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.main.temp",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 670,
+        "y": 200,
+        "wires": [
+            [
+                "851692671e510c7a"
+            ]
+        ]
+    },
+    {
+        "id": "c96cc6e7ba94bda3",
+        "type": "json",
+        "z": "9c846a1958940b49",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": true,
+        "x": 470,
+        "y": 140,
+        "wires": [
+            [
+                "71aff176690748e9",
+                "61d58e266c730e78"
+            ]
+        ]
+    },
+    {
+        "id": "71aff176690748e9",
+        "type": "function",
+        "z": "9c846a1958940b49",
+        "name": "function 1",
+        "func": "msg.payload = {\n    \"temperatura\": msg.payload.main.temp - 273.15,\n    \"min\": msg.payload.main.temp_min - 273.15,\n    \"max\": msg.payload.main.temp_max - 273.15,\n    \"vento\": msg.payload.wind.speed,\n    \"sensação de\": msg.payload.main.feels_like - 273.15\n}\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 80,
+        "wires": [
+            [
+                "7d41202c45b2ad6a"
+            ]
+        ]
+    },
+    {
+        "id": "7d41202c45b2ad6a",
+        "type": "debug",
+        "z": "9c846a1958940b49",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "9763914981619762",
+        "type": "http request",
+        "z": "9c846a1958940b49",
+        "name": "Weather",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://api.openweathermap.org/data/2.5/weather?q=London,UK&appid=0e199ebe4ed2f029c7729624c12f89a5",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 260,
+        "y": 280,
+        "wires": [
+            [
+                "4b04692d047ebecc"
+            ]
+        ]
+    },
+    {
+        "id": "4b04692d047ebecc",
+        "type": "json",
+        "z": "9c846a1958940b49",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": true,
+        "x": 410,
+        "y": 280,
+        "wires": [
+            [
+                "4c77201d99234159"
+            ]
+        ]
+    },
+    {
+        "id": "4c77201d99234159",
+        "type": "function",
+        "z": "9c846a1958940b49",
+        "name": "function 2",
+        "func": "msg.payload = {\n\"temp\": msg.payload.main.temp,\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 280,
+        "wires": [
+            [
+                "689eaea27fd432d2"
+            ]
+        ]
+    },
+    {
+        "id": "689eaea27fd432d2",
+        "type": "ui_chart",
+        "z": "9c846a1958940b49",
+        "name": "",
+        "group": "f86c81ce059f5095",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 710,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0547fe25b5bedb2b",
+        "type": "mqtt in",
+        "z": "9c846a1958940b49",
+        "name": "",
+        "topic": "4sia/fiap/teste",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 430,
+        "y": 380,
+        "wires": [
+            [
+                "019ce1f04e4ea042"
+            ]
+        ]
+    },
+    {
+        "id": "019ce1f04e4ea042",
+        "type": "debug",
+        "z": "9c846a1958940b49",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "3c0cfc1d242caf55",
+        "type": "inject",
+        "z": "9c846a1958940b49",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 400,
+        "wires": [
+            [
+                "d5a5e247207630fd"
+            ]
+        ]
+    },
+    {
+        "id": "d5a5e247207630fd",
+        "type": "mqtt out",
+        "z": "9c846a1958940b49",
+        "name": "",
+        "topic": "4sia/fiap/teste",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f9a15334041187c6",
+        "x": 340,
+        "y": 460,
+        "wires": []
+    }
+]
