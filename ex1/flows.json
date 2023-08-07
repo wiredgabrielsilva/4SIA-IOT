@@ -1,0 +1,176 @@
+[
+    {
+        "id": "9c846a1958940b49",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "51dee66c6d2e4074",
+        "type": "inject",
+        "z": "9c846a1958940b49",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Hello World!!",
+        "payloadType": "str",
+        "x": 110,
+        "y": 140,
+        "wires": [
+            [
+                "0828289275d13978"
+            ]
+        ]
+    },
+    {
+        "id": "0828289275d13978",
+        "type": "http request",
+        "z": "9c846a1958940b49",
+        "name": "Weather",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://api.openweathermap.org/data/2.5/weather?q=Sao+Paulo,BR&appid=0e199ebe4ed2f029c7729624c12f89a5",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 280,
+        "y": 140,
+        "wires": [
+            [
+                "bc52bf0f3b840dc0",
+                "c96cc6e7ba94bda3"
+            ]
+        ]
+    },
+    {
+        "id": "851692671e510c7a",
+        "type": "debug",
+        "z": "9c846a1958940b49",
+        "name": "SeeWeather",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "bc52bf0f3b840dc0",
+        "type": "json",
+        "z": "9c846a1958940b49",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": true,
+        "x": 130,
+        "y": 220,
+        "wires": [
+            [
+                "61d58e266c730e78"
+            ]
+        ]
+    },
+    {
+        "id": "61d58e266c730e78",
+        "type": "change",
+        "z": "9c846a1958940b49",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.main.temp",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 220,
+        "wires": [
+            [
+                "851692671e510c7a"
+            ]
+        ]
+    },
+    {
+        "id": "c96cc6e7ba94bda3",
+        "type": "json",
+        "z": "9c846a1958940b49",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": true,
+        "x": 530,
+        "y": 140,
+        "wires": [
+            [
+                "71aff176690748e9"
+            ]
+        ]
+    },
+    {
+        "id": "71aff176690748e9",
+        "type": "function",
+        "z": "9c846a1958940b49",
+        "name": "function 1",
+        "func": "msg.payload = {\n    \"temperatura\": msg.payload.main.temp - 273.15,\n    \"min\": msg.payload.main.temp_min - 273.15,\n    \"max\": msg.payload.main.temp_max - 273.15,\n    \"vento\": msg.payload.wind.speed,\n    \"sensação de\": msg.payload.main.feels_like - 273.15\n}\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 140,
+        "wires": [
+            [
+                "7d41202c45b2ad6a"
+            ]
+        ]
+    },
+    {
+        "id": "7d41202c45b2ad6a",
+        "type": "debug",
+        "z": "9c846a1958940b49",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 140,
+        "wires": []
+    }
+]
